@@ -1,12 +1,15 @@
-const express = require('express')
+const express = require("express");
 
-const PORT = 3000
-const HOST = '0.0.0.0'
+const PORT = 3000;
 
-const app = express()
+const HOST = "0.0.0.0";
 
-app.get('/', (req, res) => {
-  res.send('Hello World')
-})
+const app = express();
 
-app.listen(PORT, HOST)
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+console.log(`Acess in http://${HOST}:${PORT}`);
+
+app.listen(PORT, HOST);
