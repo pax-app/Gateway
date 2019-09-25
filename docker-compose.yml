@@ -1,12 +1,12 @@
 version: "3"
 
 services:
-  example-service:
-    build: .
+  gateway-service:
+    image: paxapp/pax-gateway:latest
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     ports:
-      - 3000:3000
+      - 3002:3002
       - 9229:9229
     command: npm start
