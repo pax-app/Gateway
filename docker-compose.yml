@@ -9,4 +9,4 @@ services:
     ports:
       - 3002:3002
       - 9229:9229
-    command: /bin/sh -c "npm install && npm run- build && npm start"
+    command: /bin/sh -c "npm install && npm run-script build && npm run-script dev"
