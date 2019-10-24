@@ -36,6 +36,29 @@ function userAuthentication(req,res,next){
 
 }
 
+//Protected route with authentication step
+routes.post('/provider_registration', userAuthentication, (req, res) => {
+  
+  //User service URL at provider_registration route
+  var url = "http://pax-user.herokuapp.com/provider_registration"
+  request({
+    url: url, 
+    method: 'POST',
+    headers:{
+      "content-type":"application/json",
+    },
+    json: JSON.parse(JSON.stringify(req.body)) //Sending received JSON
+  }, (error, response, body) =>{
+      
+      if(error){
+        res.send(error)
+      }
+      res.send(body)
+  });
+  
+
+});
+
 
 //Unprotected route, no authentication step
 routes.get('/provider_by_category', (req, res) => {
