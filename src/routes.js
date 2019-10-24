@@ -5,28 +5,32 @@ var request = require('request')
 
 function verifyUserStatus(req,res,next){
 
-  var url = 'http://localhost:5001//auth/status'; //Configure environment variable
+  if(!req.header('Authorization')){
+    res.json({"Error":"Missing authorization token"});
+  }
+  else{
+  var url = 'http://pax-user.herokuapp.com/auth/status'; //Configure environment variable for user service
 
   //set header
   var headers = {
-      'Authorization': 'token'
+      'Authorization': String(req.header('Authorization'))
   };
   
   request({headers: headers, url: url, method: 'GET'}, function (error, response, body) {
-    console.error('error:', error); 
-    console.log('statusCode:', response && response.statusCode); 
-    console.log('body:', body); 
-  });
+     
+    if(JSON.parse(body)['message']!='success'){
+      res.sendStatus(403);
+    }
+    next(); 
 
-  next();
+  });
+}
 }
 
 //Protected route
-routes.get('/', verifyUserStatus, (req, res) => {
+routes.get('/lel', verifyUserStatus, (req, res) => {
   
-
-
-  res.send('Hello World :D');
+  res.send('Good');
 });
 
 
