@@ -1,19 +1,16 @@
-import request from 'request';
+import axios from 'axios';
 
 class Category {
   async getGeneralCategories(req, res) {
     const url = 'http://172.25.0.1:5002/category';
-    await request(
-      { url: `${url}/general`, method: 'GET' },
-      (error, response, body) => {
-        if (error) {
-          return res.send({
-            error: 'cu',
-          });
-        }
-        return res.send(body);
-      }
-    );
+    try {
+      const response = await axios.get(`${url}/general`);
+      return res.json(response.data);
+    } catch (error) {
+      return res.json({
+        status: 'error',
+      });
+    }
   }
 }
 export default new Category();
