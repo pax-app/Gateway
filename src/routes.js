@@ -1,83 +1,80 @@
 import { Router } from 'express';
+import request from 'request';
+import Category from './app/services/Category';
 
 const routes = new Router();
-var request = require('request')
 
-function userAuthentication(req,res,next){
-
+function userAuthentication(req, res, next) {
   //Checking for the presence of an Authorization header
-  if(!req.header('Authorization')){
-    res.json({"Error":"Missing authorization token"});
+  if (!req.header('Authorization')) {
+    res.json({ Error: 'Missing authorization token' });
   }
-  
+
   //User service URL at get user status route
-  var url = 'http://pax-user.herokuapp.com/auth/status';
-  
+  const url = 'http://pax-user.herokuapp.com/auth/status';
+
   //Set header with authorization token received
-  var headers = {
-      'Authorization': String(req.header('Authorization'))
+  const headers = {
+    Authorization: String(req.header('Authorization')),
   };
-  
-  request({headers: headers, url: url, method: 'GET'},  (error, response, body) => {
-    
-    if(error){
-      res.send(error)
-    }
-    
-    //If received response is not success, then send forbidden status
-    if(JSON.parse(body)['message']!='success'){
-      res.sendStatus(403);
-    }
-    
-    //Else means authorized request, go to next step of the chain
-    next(); 
 
-  });
+  request(
+    { headers: headers, url: url, method: 'GET' },
+    (error, response, body) => {
+      if (error) {
+        res.send(error);
+      }
 
+      //If received response is not success, then send forbidden status
+      if (JSON.parse(body)['message'] != 'success') {
+        res.sendStatus(403);
+      }
+
+      //Else means authorized request, go to next step of the chain
+      next();
+    }
+  );
 }
 
 //Protected route with authentication step
 routes.post('/provider_registration', userAuthentication, (req, res) => {
-  
   //User service URL at provider_registration route
-  var url = "http://pax-user.herokuapp.com/provider_registration"
-  request({
-    url: url, 
-    method: 'POST',
-    headers:{
-      "content-type":"application/json",
+  const url = 'http://pax-user.herokuapp.com/provider_registration';
+  request(
+    {
+      url: url,
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      json: JSON.parse(JSON.stringify(req.body)), //Sending received JSON
     },
-    json: JSON.parse(JSON.stringify(req.body)) //Sending received JSON
-  }, (error, response, body) =>{
-      
-      if(error){
-        res.send(error)
+    (error, response, body) => {
+      if (error) {
+        res.send(error);
       }
-      res.send(body)
-  });
-  
-
+      res.send(body);
+    }
+  );
 });
-
 
 //Unprotected route, no authentication step
 routes.get('/provider_by_category', (req, res) => {
-  
   //Passing category id to URL
-  var url = "http://pax-user.herokuapp.com/provider_by_category/"+req.query.id
-  
-  //GET Request to User service
-  request({url: url, method: 'GET'}, (error, response, body) => {
-      
-      if(error){
-        res.send(error)
-      }
-    
-      res.json(JSON.parse(body))
-  });
+  const url =
+    'http://pax-user.herokuapp.com/provider_by_category/' + req.query.id;
 
+  //GET Request to User service
+  request({ url: url, method: 'GET' }, (error, response, body) => {
+    if (error) {
+      res.send(error);
+    }
+
+    res.json(JSON.parse(body));
+  });
 });
 
+routes.get('/api/v1/category/general', Category.getGeneralCategories);
 
 
 
