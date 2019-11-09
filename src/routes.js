@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import request from 'request';
-import Category from './app/services/Category';
+import * as CategoryRoutes from './app/services/Category';
 
 const routes = new Router();
 
@@ -74,7 +74,12 @@ routes.get('/provider_by_category', (req, res) => {
   });
 });
 
-routes.get('/api/v1/category/general', Category.getGeneralCategories);
+routes.get('/api/v1/category/general', CategoryRoutes.getGeneralCategories);
+routes.get('/api/v1/category/provider', CategoryRoutes.getProviderCategories);
+routes.get(
+  '/api/v1/category/provider/:general_category_id',
+  CategoryRoutes.getProviderCategories
+);
 
 
 
