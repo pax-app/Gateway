@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { baseGet } from '../utils/category';
+import { baseGet } from '../utils/baseRequest';
 
 const url = 'http://172.25.0.1:5002/category';
 
