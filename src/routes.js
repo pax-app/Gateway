@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import request from 'request';
 import * as CategoryRoutes from './app/services/Category';
+import * as ReviewRoutes from './app/services/Review';
 
 const routes = new Router();
 
@@ -73,7 +74,7 @@ routes.get('/provider_by_category', (req, res) => {
     res.json(JSON.parse(body));
   });
 });
-
+//Category
 routes.get('/api/v1/category/general', CategoryRoutes.getGeneralCategories);
 routes.get('/api/v1/category/provider', CategoryRoutes.getProviderCategories);
 routes.get(
@@ -81,6 +82,14 @@ routes.get(
   CategoryRoutes.getProviderCategories
 );
 
-
+//Review
+routes.get(
+  '/api/v1/review/service_reviews/average/:evaluated_id',
+  ReviewRoutes.getServiceReviewAverage
+);
+routes.get(
+  '/api/v1/review/charisma_reviews/average/:evaluated_id',
+  ReviewRoutes.getCharismaReviewAverage
+);
 
 export default routes;
