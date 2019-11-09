@@ -2,6 +2,7 @@ import { Router } from 'express';
 import request from 'request';
 import * as CategoryRoutes from './app/services/Category';
 import * as ReviewRoutes from './app/services/Review';
+import * as PaxRoutes from './app/services/Pax';
 
 const routes = new Router();
 
@@ -91,5 +92,18 @@ routes.get(
   '/api/v1/review/charisma_reviews/average/:evaluated_id',
   ReviewRoutes.getCharismaReviewAverage
 );
+
+//Pax
+routes.get('/api/v1/pax/consult_pax/:chat_id', PaxRoutes.getPaxExistance);
+routes.get(
+  '/api/v1/pax/finalized_pax/:user_kind/:id',
+  PaxRoutes.getFinalizedPax
+);
+routes.get(
+  '/api/v1/pax/initiated_pax/:user_kind/:id',
+  PaxRoutes.getInitiatedPax
+);
+routes.get('/api/v1/pax/canceled_pax/:user_kind/:id', PaxRoutes.getCanceledPax);
+routes.get('/api/v1/pax/pendent_pax/:user_kind/:id', PaxRoutes.getPendentPax);
 
 export default routes;
