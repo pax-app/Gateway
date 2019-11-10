@@ -78,11 +78,7 @@ routes.get('/provider_by_category', (req, res) => {
 
 });
 
-//Test rout
-routes.get('/test', (req, res) => {
-  
-   res.send("Teste");
-});
+
 
 
 export default routes;
