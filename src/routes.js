@@ -113,4 +113,5 @@ routes.get(
   UserRoutes.deleteProviderCategoryRelationship
 );
 routes.get('/api/v1/user/add_address', UserRoutes.createAddress);
+routes.get('/api/v1/user/auth/login', UserRoutes.loginUser);
 export default routes;

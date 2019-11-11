@@ -43,3 +43,8 @@ export async function createAddress(req, res) {
   const postData = req.body;
   res.json(await basePost(`${url}add_address`, postData));
 }
+
+export async function loginUser(req, res) {
+  const postData = req.body;
+  res.json(await basePost(`${url}auth/login`, postData));
+}
