@@ -3,6 +3,7 @@ import request from 'request';
 import * as CategoryRoutes from './app/services/Category';
 import * as ReviewRoutes from './app/services/Review';
 import * as PaxRoutes from './app/services/Pax';
+import * as UserRoutes from './app/services/User';
 
 const routes = new Router();
 
@@ -108,5 +109,11 @@ routes.get('/api/v1/pax/canceled_pax/:user_kind/:id', PaxRoutes.getCanceledPax);
 routes.get('/api/v1/pax/pendent_pax/:user_kind/:id', PaxRoutes.getPendentPax);
 routes.get('/api/v1/pax/upCreate', PaxRoutes.createPax);
 routes.get('/api/v1/pax/update_status', PaxRoutes.updatePax);
+
+//User
+routes.get(
+  '/api/v1/user/provider_by_category/review/:provider_category_id',
+  PaxRoutes.getPaxExistance
+);
 
 export default routes;
