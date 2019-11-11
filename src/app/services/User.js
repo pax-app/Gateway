@@ -53,3 +53,17 @@ export async function createUser(req, res) {
   const postData = req.body;
   res.json(await basePost(`${url}auth/registration`, postData));
 }
+
+export async function logoutUser(req, res) {
+  const { authorization } = req.headers;
+  try {
+    const response = await axios.get(`${url}auth/logout`, {
+      headers: { Authorization: authorization },
+    });
+    return response.data;
+  } catch (error) {
+    return {
+      status: 'error',
+    };
+  }
+}
