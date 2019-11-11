@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { baseGet, basePost, basePatch, baseDelete } from '../utils/baseRequest';
+import { baseGet, basePost, baseDelete } from '../utils/baseRequest';
 
 const url = 'https://pax-user.herokuapp.com/';
 
@@ -47,4 +47,9 @@ export async function createAddress(req, res) {
 export async function loginUser(req, res) {
   const postData = req.body;
   res.json(await basePost(`${url}auth/login`, postData));
+}
+
+export async function createUser(req, res) {
+  const postData = req.body;
+  res.json(await basePost(`${url}auth/registration`, postData));
 }

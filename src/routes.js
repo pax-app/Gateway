@@ -114,4 +114,6 @@ routes.get(
 );
 routes.get('/api/v1/user/add_address', UserRoutes.createAddress);
 routes.get('/api/v1/user/auth/login', UserRoutes.loginUser);
+routes.get('/api/v1/user/auth/registration', UserRoutes.createUser);
+
 export default routes;
