@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { baseGet, basePost, basePatch } from '../utils/baseRequest';
 
-const url = 'http://172.28.0.1:5003/pax';
+const url = 'http://pax-pax.herokuapp.com/pax';
 
 export async function getPaxExistance(req, res) {
   const { chat_id } = req.params;

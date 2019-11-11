@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { baseGet, basePost } from '../utils/baseRequest';
 
-const url = 'http://172.22.0.1:5004/';
+const url = 'http://pax-review.herokuapp.com/';
 
 export async function getServiceReviewAverage(req, res) {
   const { evaluated_id } = req.params;

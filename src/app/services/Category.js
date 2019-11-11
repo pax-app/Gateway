@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { baseGet } from '../utils/baseRequest';
 
-const url = 'http://172.25.0.1:5002/category';
+const url = 'http://pax-category.herokuapp.com/category';
 
 export async function getGeneralCategories(req, res) {
   res.json(await baseGet(`${url}/general`));
