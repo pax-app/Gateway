@@ -21,3 +21,14 @@ export async function basePost(route, content) {
     };
   }
 }
+
+export async function basePatch(route, content) {
+  try {
+    const response = await axios.patch(route, content);
+    return response.data;
+  } catch (error) {
+    return {
+      status: 'error',
+    };
+  }
+}
