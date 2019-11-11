@@ -115,5 +115,9 @@ routes.get(
   '/api/v1/user/provider_by_category/review/:provider_category_id',
   PaxRoutes.getPaxExistance
 );
+routes.get(
+  '/api/v1/user/provider_by_category/min_price/:provider_category_id',
+  UserRoutes.getUsersByMinimumPrice
+);
 
 export default routes;
