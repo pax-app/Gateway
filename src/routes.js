@@ -39,27 +39,6 @@ function userAuthentication(req, res, next) {
   );
 }
 
-//Protected route with authentication step
-routes.post('/provider_registration', userAuthentication, (req, res) => {
-  //User service URL at provider_registration route
-  const url = 'http://pax-user.herokuapp.com/provider_registration';
-  request(
-    {
-      url: url,
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      json: JSON.parse(JSON.stringify(req.body)), //Sending received JSON
-    },
-    (error, response, body) => {
-      if (error) {
-        res.send(error);
-      }
-      res.send(body);
-    }
-  );
-});
 //Category
 routes.get('/api/v1/category/general', CategoryRoutes.getGeneralCategories);
 routes.get('/api/v1/category/provider', CategoryRoutes.getProviderCategories);
@@ -116,5 +95,29 @@ routes.post('/api/v1/user/add_address', UserRoutes.createAddress);
 routes.post('/api/v1/user/auth/login', UserRoutes.loginUser);
 routes.post('/api/v1/user/auth/registration', UserRoutes.createUser);
 routes.get('/api/v1/user/auth/logout', UserRoutes.logoutUser);
+routes.post(
+  '/api/v1/user/provider_registration',
+  userAuthentication,
+  (req, res) => {
+    //User service URL at provider_registration route
+    const url = 'http://pax-user.herokuapp.com/provider_registration';
+    request(
+      {
+        url: url,
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        json: JSON.parse(JSON.stringify(req.body)), //Sending received JSON
+      },
+      (error, response, body) => {
+        if (error) {
+          res.send(error);
+        }
+        res.send(body);
+      }
+    );
+  }
+);
 
 export default routes;
