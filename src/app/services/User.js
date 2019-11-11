@@ -18,3 +18,8 @@ export async function getUsersByMinimumPrice(req, res) {
     )
   );
 }
+
+export async function getSingleAddress(req, res) {
+  const { address_id } = req.params;
+  res.json(await baseGet(`${url}get_address/${address_id}`));
+}

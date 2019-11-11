@@ -119,5 +119,6 @@ routes.get(
   '/api/v1/user/provider_by_category/min_price/:provider_category_id',
   UserRoutes.getUsersByMinimumPrice
 );
+routes.get('/api/v1/user/get_address/:address_id', UserRoutes.getSingleAddress);
 
 export default routes;
