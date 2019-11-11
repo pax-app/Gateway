@@ -91,8 +91,8 @@ routes.get(
 );
 routes.get('/api/v1/pax/canceled_pax/:user_kind/:id', PaxRoutes.getCanceledPax);
 routes.get('/api/v1/pax/pendent_pax/:user_kind/:id', PaxRoutes.getPendentPax);
-routes.get('/api/v1/pax/upCreate', PaxRoutes.createPax);
-routes.get('/api/v1/pax/update_status', PaxRoutes.updatePax);
+routes.post('/api/v1/pax/upCreate', PaxRoutes.createPax);
+routes.patch('/api/v1/pax/update_status', PaxRoutes.updatePax);
 
 //User
 routes.get(
@@ -108,12 +108,13 @@ routes.get(
   '/api/v1/user/get_addresses/:user_id',
   UserRoutes.getAllUserAddresses
 );
-routes.get(
+routes.delete(
   '/api/v1/user/:provider_id/category_provider/:provider_category_id',
   UserRoutes.deleteProviderCategoryRelationship
 );
-routes.get('/api/v1/user/add_address', UserRoutes.createAddress);
-routes.get('/api/v1/user/auth/login', UserRoutes.loginUser);
-routes.get('/api/v1/user/auth/registration', UserRoutes.createUser);
+routes.post('/api/v1/user/add_address', UserRoutes.createAddress);
+routes.post('/api/v1/user/auth/login', UserRoutes.loginUser);
+routes.post('/api/v1/user/auth/registration', UserRoutes.createUser);
+routes.get('/api/v1/user/auth/logout', UserRoutes.logoutUser);
 
 export default routes;
