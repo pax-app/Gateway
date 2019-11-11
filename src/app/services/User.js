@@ -28,3 +28,13 @@ export async function getAllUserAddresses(req, res) {
   const { user_id } = req.params;
   res.json(await baseGet(`${url}get_addresses/${user_id}`));
 }
+
+export async function deleteProviderCategoryRelationship(req, res) {
+  const { provider_id } = req.params;
+  const { provider_category_id } = req.params;
+  res.json(
+    await baseGet(
+      `${url}${provider_id}/category_provider/${provider_category_id}`
+    )
+  );
+}

@@ -124,5 +124,8 @@ routes.get(
   '/api/v1/user/get_addresses/:user_id',
   UserRoutes.getAllUserAddresses
 );
-
+routes.get(
+  '/api/v1/user/:provider_id/category_provider/:provider_category_id',
+  UserRoutes.deleteProviderCategoryRelationship
+);
 export default routes;
