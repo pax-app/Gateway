@@ -32,3 +32,14 @@ export async function basePatch(route, content) {
     };
   }
 }
+
+export async function baseDelete(route) {
+  try {
+    const response = await axios.delete(route);
+    return response.data;
+  } catch (error) {
+    return {
+      status: 'error',
+    };
+  }
+}
