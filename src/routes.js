@@ -92,6 +92,7 @@ routes.get(
   '/api/v1/review/charisma_reviews/average/:evaluated_id',
   ReviewRoutes.getCharismaReviewAverage
 );
+routes.post('/api/v1/review/create_review', ReviewRoutes.createReview);
 
 //Pax
 routes.get('/api/v1/pax/consult_pax/:chat_id', PaxRoutes.getPaxExistance);
