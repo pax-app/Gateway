@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { baseGet, basePost, basePatch } from '../utils/baseRequest';
+import { baseGet, basePost, basePatch, baseDelete } from '../utils/baseRequest';
 
 const url = 'https://pax-user.herokuapp.com/';
 
@@ -33,8 +33,13 @@ export async function deleteProviderCategoryRelationship(req, res) {
   const { provider_id } = req.params;
   const { provider_category_id } = req.params;
   res.json(
-    await baseGet(
+    await baseDelete(
       `${url}${provider_id}/category_provider/${provider_category_id}`
     )
   );
+}
+
+export async function createAddress(req, res) {
+  const postData = req.body;
+  res.json(await basePost(`${url}add_address`, postData));
 }

@@ -128,4 +128,5 @@ routes.get(
   '/api/v1/user/:provider_id/category_provider/:provider_category_id',
   UserRoutes.deleteProviderCategoryRelationship
 );
+routes.get('/api/v1/user/add_address', UserRoutes.createAddress);
 export default routes;
