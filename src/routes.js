@@ -120,5 +120,9 @@ routes.get(
   UserRoutes.getUsersByMinimumPrice
 );
 routes.get('/api/v1/user/get_address/:address_id', UserRoutes.getSingleAddress);
+routes.get(
+  '/api/v1/user/get_addresses/:user_id',
+  UserRoutes.getAllUserAddresses
+);
 
 export default routes;

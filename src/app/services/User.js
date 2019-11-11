@@ -23,3 +23,8 @@ export async function getSingleAddress(req, res) {
   const { address_id } = req.params;
   res.json(await baseGet(`${url}get_address/${address_id}`));
 }
+
+export async function getAllUserAddresses(req, res) {
+  const { user_id } = req.params;
+  res.json(await baseGet(`${url}get_addresses/${user_id}`));
+}
