@@ -60,22 +60,6 @@ routes.post('/provider_registration', userAuthentication, (req, res) => {
     }
   );
 });
-
-//Unprotected route, no authentication step
-routes.get('/provider_by_category', (req, res) => {
-  //Passing category id to URL
-  const url =
-    'http://pax-user.herokuapp.com/provider_by_category/' + req.query.id;
-
-  //GET Request to User service
-  request({ url: url, method: 'GET' }, (error, response, body) => {
-    if (error) {
-      res.send(error);
-    }
-
-    res.json(JSON.parse(body));
-  });
-});
 //Category
 routes.get('/api/v1/category/general', CategoryRoutes.getGeneralCategories);
 routes.get('/api/v1/category/provider', CategoryRoutes.getProviderCategories);
