@@ -106,5 +106,6 @@ routes.get(
 );
 routes.get('/api/v1/pax/canceled_pax/:user_kind/:id', PaxRoutes.getCanceledPax);
 routes.get('/api/v1/pax/pendent_pax/:user_kind/:id', PaxRoutes.getPendentPax);
+routes.get('/api/v1/pax/upCreate', PaxRoutes.createPax);
 
 export default routes;
