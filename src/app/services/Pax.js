@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { baseGet, basePost } from '../utils/baseRequest';
+import { baseGet, basePost, basePatch } from '../utils/baseRequest';
 
 const url = 'http://172.28.0.1:5003/pax';
 
@@ -35,4 +35,9 @@ export async function getPendentPax(req, res) {
 export async function createPax(req, res) {
   const postData = req.body;
   res.json(await basePost(`${url}/upCreate`, postData));
+}
+
+export async function updatePax(req, res) {
+  const postData = req.body;
+  res.json(await basePatch(`${url}/update_status`, postData));
 }
