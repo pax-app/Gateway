@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { baseGet, basePost } from '../utils/baseRequest';
 
 const url = 'http://pax-review.herokuapp.com/';

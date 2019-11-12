@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { baseGet } from '../utils/baseRequest';
 
 const url = 'http://pax-category.herokuapp.com/category';

@@ -1,4 +1,0 @@
-pastas que serão utilizadas exemplo:
-controllers
-middlewares/validators -> pra validar o req.body(Yup)
-services -> pra exportar código que pode ser reutilizado em outros lugares

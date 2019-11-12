@@ -30,8 +30,7 @@ export async function getAllUserAddresses(req, res) {
 }
 
 export async function deleteProviderCategoryRelationship(req, res) {
-  const { provider_id } = req.params;
-  const { provider_category_id } = req.params;
+  const { provider_id, provider_category_id } = req.params;
   res.json(
     await baseDelete(
       `${url}${provider_id}/category_provider/${provider_category_id}`
