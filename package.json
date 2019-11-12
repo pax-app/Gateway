@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/pax-app/Pax_Gateway#readme",
   "dependencies": {
+    "@sentry/node": "^5.8.0",
     "axios": "^0.19.0",
     "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
     "request": "latest"
   },
   "devDependencies": {
