@@ -55,15 +55,8 @@ export async function createUser(req, res) {
 
 export async function logoutUser(req, res) {
   const { authorization } = req.headers;
-  try {
-    const response = await axios.get(`${url}auth/logout`, {
-      headers: { Authorization: authorization },
-    });
-    return response.data;
-  } catch (error) {
-    return {
-      status: 'error',
-      error,
-    };
-  }
+  const response = await axios.get(`${url}auth/logout`, {
+    headers: { Authorization: authorization },
+  });
+  return response.data;
 }
