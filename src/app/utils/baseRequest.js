@@ -7,6 +7,7 @@ export async function baseGet(route) {
   } catch (error) {
     return {
       status: 'error',
+      error,
     };
   }
 }
@@ -18,6 +19,7 @@ export async function basePost(route, content) {
   } catch (error) {
     return {
       status: 'error',
+      error,
     };
   }
 }
@@ -29,6 +31,7 @@ export async function basePatch(route, content) {
   } catch (error) {
     return {
       status: 'error',
+      error,
     };
   }
 }
@@ -40,6 +43,7 @@ export async function baseDelete(route) {
   } catch (error) {
     return {
       status: 'error',
+      error,
     };
   }
 }

@@ -63,6 +63,7 @@ export async function logoutUser(req, res) {
   } catch (error) {
     return {
       status: 'error',
+      error,
     };
   }
 }
