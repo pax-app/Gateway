@@ -25,7 +25,8 @@
     "axios": "^0.19.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
-    "request": "latest"
+    "request": "latest",
+    "youch": "^2.0.10"
   },
   "devDependencies": {
     "eslint": "^6.5.1",
