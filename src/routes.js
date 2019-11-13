@@ -44,7 +44,7 @@ routes.get('/api/v1/category/general', CategoryRoutes.getGeneralCategories);
 routes.get('/api/v1/category/provider', CategoryRoutes.getProviderCategories);
 routes.get(
   '/api/v1/category/provider/:general_category_id',
-  CategoryRoutes.getProviderCategories
+  CategoryRoutes.getProviderCategoriesFromGeneral
 );
 
 //Review
