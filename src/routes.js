@@ -59,7 +59,7 @@ routes.get(
 routes.post('/api/v1/review/create_review', ReviewRoutes.createReview);
 
 //Pax
-routes.get('/api/v1/pax/consult_pax/:chat_id', PaxRoutes.getPaxExistance);
+routes.get('/api/v1/pax/consult_pax/:chat_id', PaxRoutes.getPaxExistence);
 routes.get(
   '/api/v1/pax/finalized_pax/:user_kind/:id',
   PaxRoutes.getFinalizedPax
@@ -71,7 +71,8 @@ routes.get(
 routes.get('/api/v1/pax/canceled_pax/:user_kind/:id', PaxRoutes.getCanceledPax);
 routes.get('/api/v1/pax/pendent_pax/:user_kind/:id', PaxRoutes.getPendentPax);
 routes.post('/api/v1/pax/upCreate', PaxRoutes.createPax);
-routes.patch('/api/v1/pax/update_status', PaxRoutes.updatePax);
+routes.patch('/api/v1/pax/update_status', PaxRoutes.updatePaxStatus);
+routes.patch('/api/v1/pax/update_motive', PaxRoutes.updatePaxMotive);
 
 //User
 routes.get(

@@ -1,6 +1,6 @@
 import { baseGet } from '../utils/baseRequest';
 
-const url = 'http://pax-category.herokuapp.com/category';
+const url = 'https://pax-category.herokuapp.com/category';
 
 export async function getGeneralCategories(req, res) {
   res.json(await baseGet(`${url}/general`));

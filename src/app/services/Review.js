@@ -1,6 +1,6 @@
 import { baseGet, basePost } from '../utils/baseRequest';
 
-const url = 'http://pax-review.herokuapp.com/';
+const url = 'https://pax-review.herokuapp.com/';
 
 export async function getServiceReviewAverage(req, res) {
   const { evaluated_id } = req.params;

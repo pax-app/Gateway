@@ -1,8 +1,8 @@
 import { baseGet, basePost, basePatch } from '../utils/baseRequest';
 
-const url = 'http://pax-pax.herokuapp.com/pax';
+const url = 'http://localhost:5003/pax';
 
-export async function getPaxExistance(req, res) {
+export async function getPaxExistence(req, res) {
   const { chat_id } = req.params;
   res.json(await baseGet(`${url}/consult_pax/${chat_id}`));
 }
@@ -32,7 +32,12 @@ export async function createPax(req, res) {
   res.json(await basePost(`${url}/upCreate`, postData));
 }
 
-export async function updatePax(req, res) {
+export async function updatePaxStatus(req, res) {
   const postData = req.body;
   res.json(await basePatch(`${url}/update_status`, postData));
+}
+
+export async function updatePaxMotive(req, res) {
+  const postData = req.body;
+  res.json(await basePatch(`${url}/update_motive`, postData));
 }
