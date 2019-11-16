@@ -36,3 +36,9 @@ export async function updatePax(req, res) {
   const postData = req.body;
   res.json(await basePatch(`${url}/update_status`, postData));
 }
+
+export async function updateMotive(req, res) {
+  const { id } = req.params;
+  const postData = req.body;
+  res.json(await basePatch(`${url}/update_motive/${id}`, postData));
+}
