@@ -1,6 +1,6 @@
 import { baseGet, basePost, basePatch } from '../utils/baseRequest';
 
-const url = 'http://localhost:5003/pax';
+const url = 'https://pax-pax.herokuapp.com/';
 
 export async function getPaxExistence(req, res) {
   const { chat_id } = req.params;
