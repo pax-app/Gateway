@@ -3,7 +3,8 @@ import app from '../src/app';
 const request = supertest(app);
 
 describe('Category', () => {
-  jest.setTimeout(20000);
+  jest.setTimeout(30000);
+
   it('Should get service review average from a provider', async () => {
     const res = await request.get('/api/v1/review/service_reviews/average/1');
     expect(res.body).toHaveProperty('status');

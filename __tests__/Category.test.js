@@ -3,6 +3,8 @@ import app from '../src/app';
 const request = supertest(app);
 
 describe('Category', () => {
+  jest.setTimeout(30000);
+
   it('Should return success status when getting all general categories', async () => {
     const res = await request.get('/api/v1/category/general');
     expect(res.body).toHaveProperty('status');

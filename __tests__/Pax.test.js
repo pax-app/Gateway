@@ -3,28 +3,30 @@ import app from '../src/app';
 const request = supertest(app);
 
 describe('Pax', () => {
-  it('Get if a chat has a linked pax to it', async () => {
+  jest.setTimeout(30000);
+
+  it('Should get if a chat has a linked pax to it', async () => {
     const res = await request.get('/api/v1/pax/consult_pax/1');
     expect(res.status).toBe(200);
     expect(res.body.exists).toBe('false');
   });
 
-  it('Get all finalized pax from a provider', async () => {
+  it('Should get all finalized pax from a provider', async () => {
     const res = await request.get('/api/v1/pax/finalized_pax/provider/1');
     expect(res.status).toBe(200);
     expect(res.body).toHaveProperty('data');
     expect(res.body.data).toHaveProperty('pax');
   });
 
-  it('Get all initiated pax from a provider', async () => {
+  it('Should get all initiated pax from a provider', async () => {
     const res = await request.get('/api/v1/pax/initiated_pax/provider/1');
   });
 
-  it('Get all cancelled pax from a provider', async () => {
+  it('Should get all cancelled pax from a provider', async () => {
     const res = await request.get('/api/v1/pax/canceled_pax/provider/1');
   });
 
-  it('Get all pendent pax from a provider', async () => {
+  it('Should get all pendent pax from a provider', async () => {
     const res = await request.get('/api/v1/pax/pendent_pax/provider/1');
   });
 
